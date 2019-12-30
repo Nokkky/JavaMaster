@@ -220,4 +220,11 @@ public class Main {
 //  -- make sure things are what it should be.
 //
 //
+// Git learning
+// Operation
+//  -- git init
+//  -- git add (git add fileName)
+//  -- git commit (git commit fileName -m "Commit Message")
+//  -- git log
+//  -- git checkout (git checkout commitId)
 // One change test
