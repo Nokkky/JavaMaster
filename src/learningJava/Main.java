@@ -253,7 +253,8 @@ public class Main {
 //      -- git log --oneline --decorate
 //  -- switch branches (will move HEAD branch to the branch declared)
 //      -- git checkout nameOfBranch
-//
+//  -- Merge branches
+//      -- git merge nameOfBranch
 //
 //
 // One useful tutorial https://www.vogella.com/tutorials/Git/article.html
