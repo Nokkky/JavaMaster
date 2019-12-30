@@ -220,11 +220,26 @@ public class Main {
 //  -- make sure things are what it should be.
 //
 //
-// Git learning
+// ***** Git learning *****
 // Operation
 //  -- git init
 //  -- git add (git add fileName)
 //  -- git commit (git commit fileName -m "Commit Message")
 //  -- git log
-//  -- git checkout (git checkout commitId)
-// One change test
+//  -- git checkout (git checkout commitId // git checkout master)
+// Timeline
+//   Head
+//       0 -> 0 -> 0 -> 0
+//                       Master
+//                       ( We are at master,
+//                       checkout some code and back to master)
+// How to revert from current state to a snapshot made on  a certain commit.
+//  git revert --no-commit commitId..HEAD
+//  git commit
+//
+//
+//
+// One useful tutorial https://www.vogella.com/tutorials/Git/article.html
+//
+//
+//
