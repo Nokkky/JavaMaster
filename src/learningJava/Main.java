@@ -232,10 +232,27 @@ public class Main {
 //       0 -> 0 -> 0 -> 0
 //                       Master
 //                       ( We are at master,
-//                       checkout some code and back to master)
+//                       checkout some code
+//                       and back to master)
+//
+// Checkpoints
+//  Excellent explanation for master and head: https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell
+//
 // How to revert from current state to a snapshot made on  a certain commit.
 //  git revert --no-commit commitId..HEAD
 //  git commit
+//
+//
+// Branch (basically is pointer)
+//  -- master: default branch
+//      -- if not change, will point to the branch we created.
+//  -- HEAD: position branch
+//  -- create new branch
+//      -- git branch newBranchName
+//  -- see status of branches
+//      -- git log --oneline --decorate
+//  -- switch branches (will move HEAD branch to the branch declared)
+//      -- git checkout nameOfBranch
 //
 //
 //
