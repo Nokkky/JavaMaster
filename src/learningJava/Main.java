@@ -1,10 +1,50 @@
 package learningJava;
 
 import javax.swing.plaf.multi.MultiDesktopIconUI;
-
+//import FirstMethod;
 public class Main {
     public static void main(String[] args) {
         // write your code here
+
+        primitiveValue();
+        Main.challenge();
+        floatDouble();
+        poundsToKilogram(200);
+        stringType();
+        logicOperator();
+        practiceOfOperator();
+        ifelseStatement();
+        displayHighScorePosition("Nacy", 1500);
+        displayHighScorePosition("Nacy", 900);
+        displayHighScorePosition("Nacy", 400);
+        displayHighScorePosition("Nacy", 50);
+
+
+    }
+    public static void displayHighScorePosition(String playerName, int playerScore){
+
+        int position = -1;
+        position = calculateHighScorePosition(playerScore);
+        System.out.println(playerName + " Managed to get into position "
+                + position +  " on the high score table.");
+    }
+
+    public static int calculateHighScorePosition(int playerScore){
+        int position = 0;
+
+        if (playerScore > 1000){
+            position = 1;
+        }else if (playerScore > 500 && playerScore <=1000 ){
+            position = 2;
+        }else if (playerScore > 100 && playerScore <= 500){
+            position = 3;
+        }else {
+            position = 4;
+        }
+        return position;
+    }
+
+    public static void primitiveValue(){
         int myValue = 10000;
         // 2^31
         int myMinIntValue = Integer.MIN_VALUE;
@@ -33,17 +73,6 @@ public class Main {
         long myMaxLongValue = Long.MAX_VALUE;
         System.out.println("My Maximum Long Value is " + myMaxLongValue);
         System.out.println("My Minimum Long Value is " + myMinLongValue);
-
-        Main.challenge();
-        Main.floatDouble();
-        Main.poundsToKilogram(200);
-        Main.stringType();
-        Main.logicOperator();
-        Main.practiceOfOperator();
-//        String[] ss = new String[0];
-//        ss = "aaa";
-//        Main.charBoolean(ss);
-
 
         //Casting
         byte myCastByte = (byte) (myMinByteValue / 2);
@@ -137,9 +166,24 @@ public class Main {
         if (!noRemainder) {
             System.out.println("Got some remainder!");
         }
-
-
     }
+
+    public static void ifelseStatement(){
+        boolean gameOver = true;
+        int score = 10000;
+        int levelCompleted = 10;
+        int bonus = 200;
+        if(gameOver){
+            int finalScore = score + (levelCompleted * bonus);
+            System.out.println("Your final score was " + finalScore);
+        } else if(!gameOver && score < 100){
+
+        } else{
+        } {
+
+        }
+    }
+
 
 
 }
@@ -220,6 +264,19 @@ public class Main {
 //  -- make sure things are what it should be.
 //
 //
+// Method
+//  -- method can not be nested.
+//  -- can pass value or variable to method.
+//  -- void
+//      -- not return anything
+//      -- dataType we want to return to replace void
+//  -- return -1
+//      -- indicate error.
+//         In searching algorithm -1 indicates invalid value or value not found.
+//
+//
+//
+//
 // ***** Git learning *****
 // Operation
 //  -- git init
@@ -254,8 +311,11 @@ public class Main {
 //  -- switch branches (will move HEAD branch to the branch declared)
 //      -- git checkout nameOfBranch
 //  -- Merge branches
-//      -- git merge nameOfBranch
-//
+//      -- git merge nameOfBranch ( move previous branch to later branch)
+//  -- Delete branch
+//      -- git branch -d nameOfBranch
+//  -- Check merge conflict
+//      -- git status
 //
 // One useful tutorial https://www.vogella.com/tutorials/Git/article.html
 //
