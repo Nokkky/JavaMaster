@@ -1,6 +1,8 @@
 package learningJava;
 
 import javax.swing.plaf.multi.MultiDesktopIconUI;
+import java.sql.SQLOutput;
+
 //import FirstMethod;
 public class Main {
     public static void main(String[] args) {
@@ -18,9 +20,120 @@ public class Main {
         displayHighScorePosition("Nacy", 900);
         displayHighScorePosition("Nacy", 400);
         displayHighScorePosition("Nacy", 50);
+        printConversion(75.114);
+        printMegaBytesAndKiloBytes(0);
+        System.out.println(shouldWakeUp(true,22));
+        System.out.println("is LeapYear: " + isLeapYear(-1));
+        System.out.println(areEqualByThreeDecimalPlaces(1.176, 1.175));
+        System.out.println("hasEqualSum: " + hasEqualSum(1,2,3));
+        System.out.println("hasTeen: " + hasTeen(11, 0, 99));
+    }
 
+    public static boolean hasTeen(int first, int second, int third){
+        if( isTeen(first) || isTeen(second) || isTeen(third)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static boolean isTeen(int number){
+        if (number >= 13 && number <= 19) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static boolean hasEqualSum(int first, int second, int third){
+        boolean equal;
+        if ( (first + second) == third){
+            equal = true;
+        }else{
+            equal = false;
+        }
+        return equal;
+    }
+
+    public static boolean areEqualByThreeDecimalPlaces(double first, double second){
+        boolean equalDecimal;
+        int firstInt = (int)(first * 1000);
+        int secondInt = (int)(second * 1000);
+        if (firstInt == secondInt){
+            equalDecimal =  true;
+        }else{
+            equalDecimal =  false;
+        }
+        return equalDecimal;
+    }
+
+    public static boolean isLeapYear(int year){
+        boolean leapYear;
+        if (year<1 || year > 9999){
+            leapYear = false;
+        }else if (year % 400 == 0){
+            leapYear = true;
+        }else if (year % 4 == 0 && year % 100 != 0){
+            leapYear = true;
+        }else {
+            leapYear = false;
+        }
+
+        return leapYear;
+    }
+
+    public static boolean shouldWakeUp(boolean isBarking, int hourOfDay){
+        boolean wakeUp;
+        if (isBarking){
+            if (hourOfDay < 0 || hourOfDay > 23){
+                wakeUp = false;
+            } else if (hourOfDay< 8 || hourOfDay > 22){
+                wakeUp = true;
+            } else {
+                wakeUp = false;
+            }
+        }else {
+            wakeUp = false;
+        }
+        return wakeUp;
+    }
+
+    public static long toMilesPerHour(double kilometersPerHour){
+
+        long milesPerHour;
+        if (kilometersPerHour < 0){
+            milesPerHour = -1;
+        }else {
+            milesPerHour = (long)Math.round(kilometersPerHour / 1.609);
+        }
+
+        return milesPerHour;
+    }
+
+    public static void printConversion(double kilometersPerHour){
+        long milesPerHour = toMilesPerHour(kilometersPerHour);
+        if (milesPerHour < 0 ){
+            System.out.println("Invalid Value");
+        }else {
+            System.out.println( kilometersPerHour + " km/h = " + milesPerHour + " mi/h ");
+        }
+    }
+
+    public static void printMegaBytesAndKiloBytes(int kiloBytes){
+        if (kiloBytes < 0){
+            System.out.println("Invalid Value");
+        }else {
+            int megaBytes = kiloBytes / 1024;
+            int remainKiloBytes = kiloBytes % 1024;
+//            if (remainKiloBytes == 0){
+//                System.out.println(kiloBytes + " KB = " + megaBytes + " MB");
+//            }else {
+                System.out.println(kiloBytes + " KB = " + megaBytes + " MB and " + remainKiloBytes + " KB");
+//            }
+        }
 
     }
+
     public static void displayHighScorePosition(String playerName, int playerScore){
 
         int position = -1;
@@ -32,11 +145,11 @@ public class Main {
     public static int calculateHighScorePosition(int playerScore){
         int position = 0;
 
-        if (playerScore > 1000){
+        if (playerScore >= 1000){
             position = 1;
-        }else if (playerScore > 500 && playerScore <=1000 ){
+        }else if (playerScore >= 500){
             position = 2;
-        }else if (playerScore > 100 && playerScore <= 500){
+        }else if (playerScore >= 100){
             position = 3;
         }else {
             position = 4;
@@ -194,8 +307,8 @@ public class Main {
 // long -- 64 bits -9223372036854775808(2^63) ~ 9223372036854775807
 // Convert int -> long, int -> short.
 // Casting -- convert a number from one type to another.
-// (byte) (myMinByteValue/2) -- treat value following () as byte
-// always use integer.
+//      -- (byte) (myMinByteValue/2) -- treat value following () as byte
+//      -- always use integer.
 
 //  floating  -- real number;
 //            -- single precision number 32 bits
@@ -247,6 +360,7 @@ public class Main {
 //          https://docs.oracle.com/javase/tutorial/java/nutsandbolts/opsummary.html
 //      Operators precedence table:
 //          http://www.cs.bilkent.edu.tr/~guvenir/courses/CS101/op_precedence.html
+//
 // Expression
 //  -- operator and operand
 //  -- strings are also expressions.
