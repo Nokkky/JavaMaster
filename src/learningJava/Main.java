@@ -27,22 +27,24 @@ public class Main {
         System.out.println(areEqualByThreeDecimalPlaces(1.176, 1.175));
         System.out.println("hasEqualSum: " + hasEqualSum(1,2,3));
         System.out.println("hasTeen: " + hasTeen(11, 0, 99));
-        System.out.println("FeetInches to cm: " + calFeetAndInchesToCentimeters(1,1));
-        System.out.println("Inches to cm: " + calFeetAndInchesToCentimeters(13));
+        System.out.println("FeetInches to cm: ------------- ");
+        calFeetAndInchesToCentimeters(13,1);
+        calFeetAndInchesToCentimeters(-10);
 
     }
 
     public static double calFeetAndInchesToCentimeters(double feet, double inches){
         if( feet < 0 || inches < 0 || inches > 12){
-            System.out.println("Invalid inches or feets.");
+            System.out.println("Invalid inches or feet.");
             return -1;
         }else{
-            return (2.54 * inches + 2.54 * (12 * feet) );
+            System.out.println("FeetAndInches to cm is: " + (2.54 * inches + 2.54 * (12 * feet) ));
+            return 1;
         }
     }
     public static double calFeetAndInchesToCentimeters(double inches){
         if(  inches < 0 ){
-            System.out.println("Invalid inches.");
+            System.out.println("Invalid single inches.");
             return -1;
         }else{
             System.out.println("Remaining inches is :" + (int) inches % 12);
@@ -393,7 +395,7 @@ public class Main {
 //
 // Method overloading
 //  Similar method but use different number of parameters.
-//
+//  -- Methods have same name but have different parameters.
 //
 // ***** Git learning *****
 // Operation
