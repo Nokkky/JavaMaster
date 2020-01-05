@@ -15,7 +15,7 @@ public class Main {
         stringType();
         logicOperator();
         practiceOfOperator();
-        ifelseStatement();
+        ifElseStatement();
         displayHighScorePosition("Nacy", 1500);
         displayHighScorePosition("Nacy", 900);
         displayHighScorePosition("Nacy", 400);
@@ -27,44 +27,50 @@ public class Main {
         System.out.println(areEqualByThreeDecimalPlaces(1.176, 1.175));
         System.out.println("hasEqualSum: " + hasEqualSum(1,2,3));
         System.out.println("hasTeen: " + hasTeen(11, 0, 99));
+        System.out.println("FeetInches to cm: " + calFeetAndInchesToCentimeters(1,1));
+        System.out.println("Inches to cm: " + calFeetAndInchesToCentimeters(13));
+
+    }
+
+    public static double calFeetAndInchesToCentimeters(double feet, double inches){
+        if( feet < 0 || inches < 0 || inches > 12){
+            System.out.println("Invalid inches or feets.");
+            return -1;
+        }else{
+            return (2.54 * inches + 2.54 * (12 * feet) );
+        }
+    }
+    public static double calFeetAndInchesToCentimeters(double inches){
+        if(  inches < 0 ){
+            System.out.println("Invalid inches.");
+            return -1;
+        }else{
+            System.out.println("Remaining inches is :" + (int) inches % 12);
+            double feet = (int)(inches / 12);
+            System.out.println(feet);
+            double remainInches = (int) inches % 12;
+            return calFeetAndInchesToCentimeters(feet, remainInches);
+        }
     }
 
     public static boolean hasTeen(int first, int second, int third){
-        if( isTeen(first) || isTeen(second) || isTeen(third)){
-            return true;
-        }else{
-            return false;
-        }
+        return isTeen(first) || isTeen(second) || isTeen(third);
     }
 
     public static boolean isTeen(int number){
-        if (number >= 13 && number <= 19) {
-            return true;
-        }else{
-            return false;
-        }
+        return number >= 13 && number <= 19;
     }
 
     public static boolean hasEqualSum(int first, int second, int third){
         boolean equal;
-        if ( (first + second) == third){
-            equal = true;
-        }else{
-            equal = false;
-        }
+        equal = (first + second) == third;
         return equal;
     }
 
     public static boolean areEqualByThreeDecimalPlaces(double first, double second){
-        boolean equalDecimal;
         int firstInt = (int)(first * 1000);
         int secondInt = (int)(second * 1000);
-        if (firstInt == secondInt){
-            equalDecimal =  true;
-        }else{
-            equalDecimal =  false;
-        }
-        return equalDecimal;
+        return firstInt == secondInt;
     }
 
     public static boolean isLeapYear(int year){
@@ -73,10 +79,8 @@ public class Main {
             leapYear = false;
         }else if (year % 400 == 0){
             leapYear = true;
-        }else if (year % 4 == 0 && year % 100 != 0){
-            leapYear = true;
         }else {
-            leapYear = false;
+            leapYear = year % 4 == 0 && year % 100 != 0;
         }
 
         return leapYear;
@@ -104,7 +108,7 @@ public class Main {
         if (kilometersPerHour < 0){
             milesPerHour = -1;
         }else {
-            milesPerHour = (long)Math.round(kilometersPerHour / 1.609);
+            milesPerHour = Math.round(kilometersPerHour / 1.609);
         }
 
         return milesPerHour;
@@ -136,14 +140,14 @@ public class Main {
 
     public static void displayHighScorePosition(String playerName, int playerScore){
 
-        int position = -1;
+        int position;
         position = calculateHighScorePosition(playerScore);
         System.out.println(playerName + " Managed to get into position "
                 + position +  " on the high score table.");
     }
 
     public static int calculateHighScorePosition(int playerScore){
-        int position = 0;
+        int position;
 
         if (playerScore >= 1000){
             position = 1;
@@ -158,7 +162,6 @@ public class Main {
     }
 
     public static void primitiveValue(){
-        int myValue = 10000;
         // 2^31
         int myMinIntValue = Integer.MIN_VALUE;
         int myMaxIntValue = Integer.MAX_VALUE;
@@ -168,7 +171,7 @@ public class Main {
         System.out.println("Busted MAX value = " + (myMaxIntValue + 1));
         // Underflow
         System.out.println("Busted MIN value = " + (myMinIntValue - 1));
-        int myMaxIntTest = 2_147_483_647;
+//        int myMaxIntTest = 2_147_483_647;
 
         byte myMinByteValue = Byte.MIN_VALUE;
         byte myMaxByteValue = Byte.MAX_VALUE;
@@ -181,14 +184,14 @@ public class Main {
         System.out.println("My Maximum Short Value is " + myMaxShortValue);
         System.out.println("My Minimum Short Value is " + myMinShortValue);
 
-        long myLongValue = 100L;
+//        long myLongValue = 100L;
         long myMinLongValue = Long.MIN_VALUE;
         long myMaxLongValue = Long.MAX_VALUE;
         System.out.println("My Maximum Long Value is " + myMaxLongValue);
         System.out.println("My Minimum Long Value is " + myMinLongValue);
 
         //Casting
-        byte myCastByte = (byte) (myMinByteValue / 2);
+//        byte myCastByte = (byte) (myMinByteValue / 2);
 //        short shortWrong = 32767;
 //        System.out.println("Literal value ",  );
     }
@@ -231,7 +234,7 @@ public class Main {
         System.out.println(pounds + " pounds to " + kilogram + " kilograms.");
     }
 
-    public static void charBoolean(String[] args) {
+    public static void charBoolean() {
 
         char myChar = 'D';
         char myUnicodeChar = '\u0044';
@@ -281,7 +284,7 @@ public class Main {
         }
     }
 
-    public static void ifelseStatement(){
+    public static void ifElseStatement(){
         boolean gameOver = true;
         int score = 10000;
         int levelCompleted = 10;
@@ -388,7 +391,8 @@ public class Main {
 //      -- indicate error.
 //         In searching algorithm -1 indicates invalid value or value not found.
 //
-//
+// Method overloading
+//  Similar method but use different number of parameters.
 //
 //
 // ***** Git learning *****
