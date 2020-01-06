@@ -33,6 +33,7 @@ public class Main {
 
     }
 
+    // ************* MethodOverloading parts *************
     public static double calFeetAndInchesToCentimeters(double feet, double inches){
         if( feet < 0 || inches < 0 || inches > 12){
             System.out.println("Invalid inches or feet.");
@@ -396,6 +397,13 @@ public class Main {
 // Method overloading
 //  Similar method but use different number of parameters.
 //  -- Methods have same name but have different parameters.
+//
+// Constant
+//  private static final String  INVALID_VALUE_MESSAGE = "Invalid value";
+//  -- can not be changed once assigned.
+//
+//
+//
 //
 // ***** Git learning *****
 // Operation
